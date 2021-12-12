@@ -2,28 +2,41 @@
 import 'dart:io';
 import 'dart:math';
 
+
 void main(){
   var r = Random();
-  var answer = r.nextInt(10);
-  stdout.write("Let's Guess 0 to 9: ");
-  int round = 1;
+  var answer = r.nextInt(100);
+  //stdout.write("Let's Guess 1 to 100: ");
+  int round = 0;
   while(true) {
+    stdout.write("Let's Guess 1 to 100: ");
     var input = stdin.readLineSync();
     var guess = int.tryParse(input!);
-    //print(input);
-    if(guess! > 9){
-      print("please enter a value between 0-9 (-_-)");
+    if(guess == null){
+      continue;
     }
-    if(round == 5){
-      print("OMG,You guess it 5 round but It's not true XP ");
+    //print(input);
+    if(guess > answer){
+      print("$guess is more than answer!");
+    }
+    if(guess < answer){
+
+      print("$guess is less than answer!");
+    }
+    if(round == 50){
+      print("OMG,You guess it 50 round but It's not true XP ");
     }
     if(guess == answer){
+      round++;
       print("It's True!");
+      print("");
+      stdout.write("you use: $round"+" round for guess it! XP");
       break;
     }
     if(guess != answer){
       round++;
       print("Try again!");
+      print("");
     }
   }
 }
