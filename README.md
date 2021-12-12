@@ -1,6 +1,6 @@
 # guess_number
 
-A new Flutter project.
+HW weekII ,A new Flutter project.
 
 ## Getting Started
 
